@@ -7,6 +7,7 @@ import com.ping.repository.UserRepository;
 import com.ping.request.UpdateUserRequest;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -67,6 +68,12 @@ public class UserServiceImplementation implements UserService{
     public List<User> searchUser(String query) {
         List<User> users = userRepository.searchUser(query);
 
+        return users;
+    }
+
+    @Override
+    public List<User> getTop10Users() {
+        List<User> users = userRepository.findTop10Users(PageRequest.of(0, 10));
         return users;
     }
 }

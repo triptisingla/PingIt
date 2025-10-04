@@ -16,4 +16,6 @@ public interface UserService {
 
     public List<User> searchUser (String query);
 
+    public List<User> getTop10Users();
+
 }
