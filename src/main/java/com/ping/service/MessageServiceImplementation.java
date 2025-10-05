@@ -38,7 +38,7 @@ public class MessageServiceImplementation implements MessageService{
         message.setContent(req.getContent());
         message.setTimestamp(LocalDateTime.now());
 
-        return message;
+        return messageRepository.save(message);
     }
 
     @Override
